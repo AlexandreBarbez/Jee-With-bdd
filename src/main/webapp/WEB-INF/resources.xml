@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+    <Resource id="connectMysqlDB" type="javax.sql.DataSource">
+        JdbcDriver com.mysql.jdbc.Driver
+        JdbcUrl jdbc:mysql://localhost/tpjee
+        <!--defaultAutoCommit false-->
+        UserName root
+        Password mysql
+        JtaManaged false
+    </Resource>
+</tomee>
