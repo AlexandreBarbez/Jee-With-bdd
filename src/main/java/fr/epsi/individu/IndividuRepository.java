@@ -17,9 +17,12 @@ public class IndividuRepository {
         java.sql.Statement stmt = null;
         try {
             stmt = connection.createStatement();
-            stmt.execute("insert into individu (nom, prenom, age) values ('" + individu.getNom() + "','" + individu.getPrenom() + "','" + individu.getAge() + "')");
+            stmt.execute("insert into individu (nom, prenom, age) " +
+                            "values ('" + individu.getNom() + "','" + individu.getPrenom() + "','" + individu.getAge() + "')");
             stmt.close();
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
         }
 

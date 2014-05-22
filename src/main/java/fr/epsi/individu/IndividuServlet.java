@@ -23,11 +23,14 @@ public class IndividuServlet extends HttpServlet {
 
     @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try (Connection connection = dataSource.getConnection()) {
-        IndividuRepository individuRepository = new IndividuRepository(connection);
-		req.setAttribute("individus", individuRepository.getAll());
-		getServletContext().getRequestDispatcher("/WEB-INF/jsp/individu.jsp").forward(req, resp);
-        } catch (SQLException e) {
+        try (Connection connection = dataSource.getConnection())
+        {
+            IndividuRepository individuRepository = new IndividuRepository(connection);
+		    req.setAttribute("individus", individuRepository.getAll());
+		    getServletContext().getRequestDispatcher("/WEB-INF/jsp/individu.jsp").forward(req, resp);
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
         }
     }
